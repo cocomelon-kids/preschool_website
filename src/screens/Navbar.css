@@ -1,0 +1,139 @@
+/* Import playful fonts */
+@font-face {
+    font-family: 'CocomelonFont';
+    src: url('/fonts/cocomelon.ttf') format('truetype');
+  }
+  
+  /* Navbar Styling */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #4B0082; /* Purple theme color */
+    color: white;
+    font-family: 'CocomelonFont', sans-serif;
+    position: relative;
+  }
+  
+  .navbar-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-logo {
+    height: 70px;
+    margin-right: 15px;
+  }
+  
+  .company-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Removed margin for better alignment */
+  }
+  
+  .company-name {
+    font-size: 30px;
+    color: white;
+  }
+  
+  .subtitle {
+    font-size: 20px; /* Increased font size for better visibility on mobile */
+    color: #FFD700; /* Yellow theme color */
+  }
+  
+  /* Menu Links */
+  .navbar-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+  }
+  
+  .navbar-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+  
+  .navbar-links a:hover {
+    color: #FFD700; /* Yellow on hover */
+  }
+  
+  /* Enroll Button */
+  .enroll-btn {
+    background-color: #FFD700; /* Yellow */
+    color: #4B0082; /* Purple */
+    padding: 10px 20px;
+    font-family: 'CocomelonFont', sans-serif;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .enroll-btn:hover {
+    background-color: #4B0082; /* Purple on hover */
+    color: #FFD700; /* Yellow */
+  }
+  
+  /* Hamburger Menu */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 22px;
+    cursor: pointer;
+  }
+  
+  .hamburger div {
+    width: 100%;
+    height: 4px;
+    background-color: white;
+  }
+  
+  .hamburger.active div {
+    background-color: #FFD700; /* Yellow */
+  }
+  
+  /* Mobile Responsive Styles */
+  @media (max-width: 768px) {
+    .navbar-links {
+      display: none;
+      flex-direction: column;
+      gap: 15px;
+      position: absolute;
+      top: 85px;
+      right: 0;
+      background-color: #4B0082; /* Purple */
+      padding: 20px;
+      border-radius: 0 0 15px 15px;
+      width: 90%;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transform: translateX(100%); /* Initially off the screen */
+      transition: transform 0.3s ease-in-out;
+    }
+  
+    .navbar-links.active {
+      display: flex;
+      transform: translateX(0); /* Slide in from right */
+    }
+  
+    .hamburger {
+      display: flex;
+    }
+  
+    .enroll-btn {
+      display: none; /* Hide Enroll button on mobile */
+    }
+  }
+  
+  /* Remove margin for better visibility on mobile */
+  .company-title h1, .company-title p {
+    margin: 0;
+  }
+  

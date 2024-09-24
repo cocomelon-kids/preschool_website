@@ -1,0 +1,32 @@
+# Node.js dependencies
+node_modules
+npm-debug.log
+
+# Maven build files
+.mvn
+target
+
+# Build outputs
+dist
+public/build
+
+# IDE and system files
+.vscode
+.idea
+*.iml
+
+# Environment files
+.env
+.env.local
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Git files
+.git
+.gitignore
+
+# Others
+*.log
+*.tmp
