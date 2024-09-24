@@ -9,5 +9,5 @@ COPY preschool/src/ ./src/
 RUN mvn --version
 
 # Run Maven clean and package
-RUN mvn clean package -DskipTests -X
+RUN mvn clean package -DskipTests 
 
