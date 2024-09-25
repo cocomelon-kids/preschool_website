@@ -21,8 +21,8 @@ FROM maven:3.8.3-openjdk-17 AS backend-build
 WORKDIR /app/preschool
 
 # Copy the backend pom.xml and source code
-COPY backend/pom.xml ./
-COPY backend/src/ ./src/
+COPY preschool/pom.xml ./
+COPY preschool/src/ ./src/
 
 # Run Maven to build the backend (skip tests for faster builds)
 RUN mvn clean package -DskipTests
