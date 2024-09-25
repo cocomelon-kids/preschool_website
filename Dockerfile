@@ -1,10 +1,10 @@
 # Stage 1: Build the frontend
 FROM node:18 AS frontend-build
 
-WORKDIR /app
+WORKDIR /app/frontend
 
-# Copy frontend package.json and package-lock.json files
-COPY package.json package-lock.json ./
+# Copy frontend package.json and package-lock.json files from the frontend folder
+COPY frontend/package.json frontend/package-lock.json ./
 
 # Install dependencies for the frontend
 RUN npm install
@@ -22,8 +22,8 @@ WORKDIR /app/preschool
 COPY preschool/pom.xml ./
 COPY preschool/src/ ./src/
 
-# Copy the frontend build output from the previous stage
-COPY --from=frontend-build /app/dist/ ./src/main/resources/static/
+# Copy the frontend build output from the previous stage into the Spring Boot static folder
+COPY --from=frontend-build /app/frontend/dist/ ./src/main/resources/static/
 
 # Run Maven to build the backend
 RUN mvn clean package -DskipTests
