@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile  # Use the combined Dockerfile
+      target: frontend-server  # Specify the frontend server stage
+    ports:
+      - "80:80"
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile  # Use the combined Dockerfile
+      target: backend-server  # Specify the backend server stage
+    ports:
+      - "8080:8080"
