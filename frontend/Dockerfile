@@ -1,25 +1,27 @@
-# Stage 1: Build the React application
-FROM node:18-alpine AS build
+# Stage 1: Build the frontend
+FROM node:18 AS frontend-build
 
-WORKDIR /app
+WORKDIR /app/frontend
 
-# Install dependencies
-COPY package.json package-lock.json ./
+# Copy frontend package.json and package-lock.json files
+COPY frontend/package.json frontend/package-lock.json ./
+
+# Install dependencies for the frontend
 RUN npm install
 
-# Copy the rest of the application
-COPY . .
+# Copy the rest of the frontend source code and build it
+COPY frontend/ ./
 
-# Build the React application
+# Run the build process (this will generate the dist folder)
 RUN npm run build
 
-# Stage 2: Serve the React application
+# Stage 2: Serve the frontend using an Nginx server
 FROM nginx:alpine
 
-# Copy the built React files to the Nginx container
-COPY --from=build /app/dist /usr/share/nginx/html
+# Copy the build output to the Nginx html folder
+COPY --from=frontend-build /app/frontend/dist /usr/share/nginx/html
 
-# Expose port 80
+# Expose the port Nginx will run on
 EXPOSE 80
 
 # Start Nginx server
