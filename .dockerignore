@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Node.js dependencies
 node_modules
 npm-debug.log
@@ -30,3 +31,49 @@ Thumbs.db
 # Others
 *.log
 *.tmp
+=======
+# Node.js modules (for frontend)
+node_modules
+npm-debug.log
+yarn-error.log
+package-lock.json
+
+# Vite build folder (frontend)
+dist
+
+# Maven-specific files (for backend)
+target
+.mvn
+
+# Git and editor-related files
+.git
+.gitignore
+.vscode
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Docker-specific files
+Dockerfile
+.dockerignore
+
+# Environment files (optional, depending on how you manage secrets)
+.env
+.env.local
+.env.development
+.env.production
+
+# MacOS and system-specific files
+.DS_Store
+Thumbs.db
+
+# Temporary build files
+*.class
+*.jar
+*.war
+*.ear
+>>>>>>> f8c8ea9 (first commit)
